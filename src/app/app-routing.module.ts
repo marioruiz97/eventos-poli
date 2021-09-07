@@ -1,4 +1,4 @@
-import { InicioSesionComponent } from './feature/inicio-sesion/inicio-sesion.component';
+import { InicioSesionComponent } from '@feature/inicio-sesion/inicio-sesion.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

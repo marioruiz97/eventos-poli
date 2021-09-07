@@ -1,4 +1,4 @@
-import { InicioSesionComponent } from './feature/inicio-sesion/inicio-sesion.component';
+import { InicioSesionComponent } from '@feature/inicio-sesion/inicio-sesion.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,8 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
