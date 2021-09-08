@@ -9,7 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class InicioSesionComponent implements OnInit {
 
-  // TODO: agregar lógica, funcionalidad para el login
 
   public hide = true;
   public loginForm: FormGroup;
@@ -33,8 +32,5 @@ export class InicioSesionComponent implements OnInit {
     this.authService.iniciarSesion({ usuario: usuario.username, contrasena: usuario.password });
   }
 
-  redirect(to: string) {
-    //return this.authService.redirect(to);
-  }
 
 }
