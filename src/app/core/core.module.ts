@@ -6,13 +6,15 @@ import { MenuLateralComponent } from '@core/components/menu-lateral/menu-lateral
 import { ToolbarComponent } from '@core/components/toolbar/toolbar.component';
 import { SharedModule } from '@shared/shared.module';
 import { UiService } from '@core/service/ui.service';
+import { ConfirmarDialogComponent } from './components/confirmar-dialog/confirmar-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     MenuLateralComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ConfirmarDialogComponent
   ],
   imports: [
     CommonModule,

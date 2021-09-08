@@ -1,3 +1,4 @@
+import { UiService } from '@core/service/ui.service';
 import { AuthService } from '@core/service/auth.service';
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { NavItem } from '@core/model/nav-item';
@@ -11,12 +12,11 @@ export class MenuLateralComponent implements OnInit {
 
   @Output() closeSidenav = new EventEmitter();
 
-  @Input()
-  menu!: NavItem[];
+  @Input() menu!: NavItem[];
 
   estaEnSesion: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private uiService: UiService) { }
 
   ngOnInit(): void {
     this.authService.estaAutenticado.subscribe((estaEnSesion: boolean) => this.estaEnSesion = estaEnSesion);
@@ -30,5 +30,6 @@ export class MenuLateralComponent implements OnInit {
   cerrarSesion() {
     this.onToggle();
     this.authService.cerrarSesion();
+    this.uiService.mostrarSnackBar('Se ha cerrado la sesión');
   }
 }
