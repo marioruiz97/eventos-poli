@@ -29,11 +29,8 @@ export class UiService {
     });
   }
 
-  private mostrarError(data: ConfirmDialogData): void {
-    this.mostrarConfirmDialog({ ...data });
-  }
-
-  configurarSnackBar<T>(promise: Promise<T>, mensaje: string): Observable<boolean> {
+  // TODO: eliminar método
+  private configurarSnackBar<T>(promise: Promise<T>, mensaje: string): Observable<boolean> {
     this.estaCargando.next(true);
     return new Observable((exito) => {
       promise
@@ -47,12 +44,12 @@ export class UiService {
           exito.next(false);
           const message = err.error ? err.error.mensaje : 'Ha ocurrido un error, contacta un administrador';
           const errors: string[] = err.error && err.error.errors ? err.error.errors : [];
-          this.mostrarError({ title: 'Error', message, errors, confirm: 'Ok' });
+          this.mostrarDialogo({ title: 'Error', message, errors, confirm: 'Ok' });
         });
     });
   }
 
-  mostrarConfirmDialog(data: ConfirmDialogData): MatDialogRef<ConfirmarDialogComponent> {
+  mostrarDialogo(data: ConfirmDialogData): MatDialogRef<ConfirmarDialogComponent> {
     return this.dialog.open(ConfirmarDialogComponent, {
       data: {
         title: data.title,

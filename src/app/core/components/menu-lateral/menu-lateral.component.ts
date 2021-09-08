@@ -1,6 +1,6 @@
 import { UiService } from '@core/service/ui.service';
 import { AuthService } from '@core/service/auth.service';
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { NavItem } from '@core/model/nav-item';
 
 @Component({
@@ -12,6 +12,7 @@ export class MenuLateralComponent implements OnInit {
 
   @Output() closeSidenav = new EventEmitter();
 
+  // TODO: CAMBIAR MENU Y RUTAS
   public menu: NavItem[] = [
     { url: '/tipo-citas', name: 'Tipos de Cita', icon: 'next_week' },
     { url: '/veterinarios', name: 'Veterinarios', icon: 'assignment_ind' },
