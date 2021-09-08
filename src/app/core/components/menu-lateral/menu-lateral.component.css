@@ -4,15 +4,17 @@ img.logo {
   cursor: pointer;
 }
 
-
 /*
   * estilos para el menu
   */
-  .nav-caption {
-    padding-left: 20px;
-  }
+section {
+  min-height: 100%;
+}
 
-  mat-nav-list > a.mat-list-item {
-    padding-bottom: 1px !important;
-  }
+.nav-caption {
+  padding-left: 20px;
+}
 
+mat-nav-list > a.mat-list-item {
+  padding-bottom: 1px !important;
+}

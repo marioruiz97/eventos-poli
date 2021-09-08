@@ -26,4 +26,9 @@ export class MenuLateralComponent implements OnInit {
   onToggle(): void {
     this.closeSidenav.emit();
   }
+
+  cerrarSesion() {
+    this.onToggle();
+    this.authService.cerrarSesion();
+  }
 }

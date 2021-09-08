@@ -69,4 +69,8 @@ export class AuthService {
     this.notificarSiHayUsuarioEnSesion();
   }
 
+  public cerrarSesion(){
+    this.limpiarSesion();
+  }
+
 }
