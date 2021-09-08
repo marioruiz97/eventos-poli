@@ -1,3 +1,12 @@
-<main>
-  <router-outlet></router-outlet>
-</main>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [ngClass]="($isHandset) ? 'lt-sm' : 'gt-sm'" role="navigation" mode="push">
+    <app-menu-lateral (closeSidenav)="sidenav.close()" [menu]="menu"></app-menu-lateral>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-toolbar (openMenu)="sidenav.toggle()"></app-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
