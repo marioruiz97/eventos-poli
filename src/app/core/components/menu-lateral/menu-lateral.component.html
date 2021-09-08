@@ -1,4 +1,4 @@
-<section fxLayout="column">
+<section fxLayout="column" *ngIf="estaEnSesion">
 
   <div class="primary mb-1 px-3 py-2" fxFlex fxLayoutAlign="center">
     <img (click)="onToggle()" class="mx-auto logo" src="/assets/img/imagotipo.png" alt="Logo Eventos Poli">
