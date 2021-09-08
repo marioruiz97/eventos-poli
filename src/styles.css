@@ -20,3 +20,17 @@ mat-tab-group {
 tr.mat-row:hover {
   background-color: #eee;
 }
+
+/*
+* Estilos aplicados al menu lateral y barra superior
+*/
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 30vw;
+}
+

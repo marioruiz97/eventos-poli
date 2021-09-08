@@ -1,8 +1,8 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { UiService } from '@core/service/ui.service';
+import { Component } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { NavItem } from '@core/model/nav-item';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ import { map, tap } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'veterinaria-front';
-  $isHandset: Observable<boolean>;
+
+  modo: MatDrawerMode = 'push';
 
   public menu: NavItem[] = [
     { url: '/tipo-citas', name: 'Tipos de Cita', icon: 'next_week' },
@@ -20,15 +20,8 @@ export class AppComponent {
     { url: '/citas', name: 'Agendar Citas', icon: 'book_online' },
   ];
 
-  constructor(
-    private breakPointObserver: BreakpointObserver,
-    private changeDetectorRef: ChangeDetectorRef
-  ) {
-    this.$isHandset = this.breakPointObserver
-      .observe([Breakpoints.Handset])
-      .pipe(
-        map((result) => result.matches),
-        tap(() => this.changeDetectorRef.detectChanges())
-      );
+  constructor(private uiService: UiService) {
+    this.uiService.modoActual.subscribe((nuevoModo) => this.modo = nuevoModo);
   }
+
 }

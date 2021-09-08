@@ -1,11 +1,11 @@
-<mat-toolbar class=".bg-darken-gray expanded">
-  <div fxHide.gt-sm>
+<mat-toolbar class="py-3">
+  <div>
       <button mat-icon-button (click)="openMenu.emit()">
           <mat-icon>menu</mat-icon>
       </button>
   </div>
 
-  <div fxFlex fxLayoutAlign.lt-md="center" fxLayoutAlign.gt-sm="space-between">
+  <div class="mx-auto">
       <div class="logo" [routerLink]="['/home']"></div>
   </div>
 </mat-toolbar>

@@ -1,0 +1,8 @@
+
+.logo {
+  cursor: pointer;
+  background-image: url("/assets/img/logo.png");
+  background-size: cover;
+  height: 50px;
+  width: 110px;
+}

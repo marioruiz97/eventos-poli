@@ -1,12 +1,11 @@
 <section fxLayout="column">
 
   <div class="primary mb-1 px-3 py-2" fxFlex fxLayoutAlign="center">
-      <button mat-fab color="primary" class="mat-elevation-z5 photo-button" matTooltip="Inicio" routerLink="/home"
-          (click)="onToggle()"></button>
+    <img (click)="onToggle()" class="mx-auto logo" src="/assets/img/imagotipo.png" alt="Logo Eventos Poli">
   </div>
   <mat-divider></mat-divider>
 
-  <mat-nav-list>
+  <mat-nav-list class="mt-4">
       <a mat-list-item (click)="onToggle()" *ngFor="let item of menu">
           <mat-icon>{{item.icon}}</mat-icon> <span class="nav-caption">{{item.name}}</span>
       </a>
