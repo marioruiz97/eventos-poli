@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
 section {
   background-image: url("/assets/img/login-bgimg.png");
   min-height: 100%;
@@ -16,6 +18,7 @@ section {
   padding: 23px 0;
   margin: 0;
   color: white;
+  font-family: 'Graduate', cursive;
   font-size: 2em;
   font-weight: 500;
 }
@@ -28,7 +31,7 @@ section {
 }
 
 .boton-enlace:hover {
-  background-color: #eee;
+  background-color: #e5e5e5;
   border: 2px solid #000;
   cursor: pointer;
 }
