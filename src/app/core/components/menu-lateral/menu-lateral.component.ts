@@ -12,9 +12,14 @@ export class MenuLateralComponent implements OnInit {
 
   @Output() closeSidenav = new EventEmitter();
 
-  @Input() menu!: NavItem[];
+  public menu: NavItem[] = [
+    { url: '/tipo-citas', name: 'Tipos de Cita', icon: 'next_week' },
+    { url: '/veterinarios', name: 'Veterinarios', icon: 'assignment_ind' },
+    { url: '/responsables', name: 'Clientes y Mascotas', icon: 'people' },
+    { url: '/citas', name: 'Agendar Citas', icon: 'book_online' },
+  ];
 
-  estaEnSesion: boolean = false;
+  public estaEnSesion: boolean = false;
 
   constructor(private authService: AuthService, private uiService: UiService) { }
 

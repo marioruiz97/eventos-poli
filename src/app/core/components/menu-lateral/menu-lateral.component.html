@@ -6,7 +6,7 @@
   <mat-divider></mat-divider>
 
   <mat-nav-list class="mt-4" fxFlex fxLayout="column">
-    <a mat-list-item (click)="onToggle()" *ngFor="let item of menu">
+    <a mat-list-item (click)="onToggle()" *ngFor="let item of menu" [routerLink]="item.url">
       <mat-icon>{{item.icon}}</mat-icon> <span class="nav-caption">{{item.name}}</span>
     </a>
     <div fxFlex></div>
