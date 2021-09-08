@@ -1,0 +1,38 @@
+section {
+  background-image: url("/assets/img/login-bgimg.png");
+  min-height: 100%;
+}
+
+.boton-enlace {
+  margin: 3em;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 2px solid white;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.boton-enlace h3 {
+  padding: 23px 0;
+  margin: 0;
+  color: white;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.boton-enlace,
+.boton-enlace h3 {
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.boton-enlace:hover {
+  background-color: #eee;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.boton-enlace h3:hover {
+  color: #000;
+}

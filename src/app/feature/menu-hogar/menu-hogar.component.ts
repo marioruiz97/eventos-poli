@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UiService } from '@core/service/ui.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class MenuHogarComponent implements OnInit, OnDestroy {
 
-  constructor(private uiService: UiService) { }
+  constructor(private uiService: UiService, private router: Router) { }
 
   ngOnInit(): void {
     this.uiService.cambiarModo('side');
@@ -15,6 +16,10 @@ export class MenuHogarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.uiService.cambiarModo('push');
+  }
+
+  redirigir(ruta: string) {
+    this.router.navigate([ruta]);
   }
 
 }

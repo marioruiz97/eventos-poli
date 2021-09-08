@@ -1,1 +1,21 @@
-<p>menu-hogar works!</p>
+<section gdAreas="content" gdRows="auto">
+  <!-- TODO: corregir enlaces con rutas correspondientes -->
+  <div gdArea="content" fxLayout="column" fxLayoutAlign="center">
+    <div class="row" fxLayoutAlign="center">
+      <div class="boton-enlace" (click)="redirigir('/eventos')">
+        <h3>Ver Eventos</h3>
+      </div>
+      <div class="boton-enlace" (click)="redirigir('/eventos')">
+        <h3>Crear Eventos</h3>
+      </div>
+    </div>
+    <div class="row" fxLayoutAlign="center">
+      <div class="boton-enlace" (click)="redirigir('/eventos')">
+        <h3>Lugares</h3>
+      </div>
+      <div class="boton-enlace" (click)="redirigir('/eventos')">
+        <h3>Usuarios</h3>
+      </div>
+    </div>
+  </div>
+</section>
