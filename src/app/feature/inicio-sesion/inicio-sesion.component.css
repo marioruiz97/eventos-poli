@@ -1,3 +1,47 @@
-html {
-  background-color: aqua;
+/*
+* aqui se encuentran los estilos propios del componente login
+*/
+div.bgimg {
+  background-image: url('/assets/img/login-bgimg.png');
+  min-height: 100vh;
+}
+
+div.descripcion {
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.6em;
+}
+
+div.descripcion h2 {
+  font-size: 2.7rem;
+  line-height: 0.9em;
+}
+
+div.descripcion p {
+  font-size: 1.4rem;
+}
+
+mat-card-header img {
+  width: 15vw;
+  height: 15vw;
+}
+
+mat-card-actions button {
+  width: 50%;
+  font-size: 1.1rem;
+}
+
+footer {
+  color: #fff;
+}
+
+footer p, footer p a {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #e5e5e5;
+  font-weight: 600;
 }
