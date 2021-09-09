@@ -9,6 +9,13 @@ const routes: Routes = [
 
   { path: 'login', component: InicioSesionComponent },
   { path: 'home', component: MenuHogarComponent },
+  {
+    path: 'eventos',
+    loadChildren: () =>
+      import('@feature/evento/evento.module').then(
+        (mod) => mod.EventoModule
+      ),
+  },
 ];
 
 @NgModule({

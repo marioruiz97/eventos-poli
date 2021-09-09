@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuHogarComponent } from './feature/menu-hogar/menu-hogar.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { EventoModule } from './feature/evento/evento.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    EventoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
