@@ -1,4 +1,3 @@
-import { AppService } from '@core/service/app.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -26,7 +25,6 @@ import { ConfirmarDialogComponent } from './components/confirmar-dialog/confirma
     ToolbarComponent
   ],
   providers: [
-    AppService,
     UiService
   ]
 })

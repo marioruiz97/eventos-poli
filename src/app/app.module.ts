@@ -10,6 +10,7 @@ import { MenuHogarComponent } from './feature/menu-hogar/menu-hogar.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { EventoModule } from './feature/evento/evento.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EventoModule } from './feature/evento/evento.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,

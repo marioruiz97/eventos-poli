@@ -1,51 +1,67 @@
-<div fxLayout="column">
+<div fxLayout="column" class="mt-5">
   <div class="px-1 px-sm-5 list-button" fxLayoutAlign="space-between">
     <mat-form-field>
       <input matInput type="text" (keyup)="doFilter($event)" placeholder="buscar..." />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <button class="" mat-button routerLink="/eventos/crear" color="primary">
-      <mat-icon>add</mat-icon> Crear Tipo de cita
+      <mat-icon>add</mat-icon> Crear Evento
     </button>
   </div>
 
 
   <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
-    <caption style="display: none;">Tipos de cita</caption>
-    <ng-container matColumnDef="idTipoCita">
-      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Id tipo </th>
-      <td mat-cell *matCellDef="let doc"> {{doc.idTipoCita}} </td>
+    <caption style="display: none;">Eventos</caption>
+    <ng-container matColumnDef="idEvento">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Id Evento </th>
+      <td mat-cell *matCellDef="let doc"> {{doc.idEvento}} </td>
     </ng-container>
-    <ng-container matColumnDef="nombre">
-      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Nombre tipo de cita </th>
-      <td mat-cell *matCellDef="let doc"> {{doc.nombre}} </td>
+    <ng-container matColumnDef="titulo">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+      <td mat-cell *matCellDef="let doc"> {{doc.titulo}} </td>
     </ng-container>
-    <ng-container matColumnDef="tarifaBasica">
-      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Tarifa Básica </th>
+    <ng-container matColumnDef="categorias">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Categorías </th>
       <td mat-cell *matCellDef="let doc">
-        {{doc.tarifaBasica}}
+        <p class="mb-1" *ngFor="let categoria of doc.categorias">
+          {{categoria.nombre}}
+        </p>
       </td>
     </ng-container>
-    <ng-container matColumnDef="descripcionBreve">
-      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Descripción </th>
+    <ng-container matColumnDef="fecha">
+      <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Fecha </th>
       <td mat-cell *matCellDef="let doc" fxHide.lt-sm>
-        <p class="px-2">{{doc.descripcionBreve}}</p>
+        {{doc.fecha | date: 'fullDate'}}
       </td>
     </ng-container>
 
     <!-- botones para editar, eliminar -->
     <ng-container matColumnDef="acciones">
-      <th scope="col" mat-header-cell *matHeaderCellDef> Acciones </th>
+      <th scope="col" mat-header-cell *matHeaderCellDef> Opciones </th>
       <td mat-cell *matCellDef="let doc">
-        <div>
-          <button mat-icon-button color="primary" [routerLink]="['/tipo-citas/guardar/'+doc.idTipoCita]"
-            matTooltip="Editar">
-            <mat-icon class="mat-18">edit</mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="options">
+          <mat-icon class="mat-18">more_horiz</mat-icon>
+        </button>
+        <mat-menu #options="matMenu">
+          <button mat-menu-item>
+            <mat-icon>info</mat-icon> Ver información del evento
           </button>
-          <button mat-icon-button color="warn" (click)="eliminar(doc.idTipoCita)" matTooltip="Eliminar">
-            <mat-icon class="mat-18">delete</mat-icon>
+          <button mat-menu-item>
+            <mat-icon>chat</mat-icon> Comentarios
           </button>
-        </div>
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon> Editar Evento
+          </button>
+          <button mat-menu-item>
+            <mat-icon>fact_check</mat-icon> Gestionar Asistentes
+          </button>
+          <button mat-menu-item>
+            <mat-icon>groups</mat-icon> Gestionar Conferencistas
+          </button>
+          <button mat-menu-item>
+            <mat-icon color="warn">delete</mat-icon> Eliminar Evento
+          </button>
+        </mat-menu>
       </td>
     </ng-container>
     <!-- elementos necesarios para el mat-table de angular material-->

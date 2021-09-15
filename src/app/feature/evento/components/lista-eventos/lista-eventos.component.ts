@@ -1,3 +1,4 @@
+import { VistaEvento } from './../../shared/model/evento.model';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -13,8 +14,8 @@ import { Subscription } from 'rxjs';
 export class ListaEventosComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private subscripciones: Subscription[] = [];
-  displayedColumns = ['idTipoCita', 'nombre', 'tarifaBasica', 'descripcionBreve', 'acciones'];
-  datasource = new MatTableDataSource<any>(); //TODO: cambiar any por el modelo
+  displayedColumns = ['idEvento', 'titulo', 'categorias', 'fecha', 'acciones'];
+  datasource = new MatTableDataSource<VistaEvento>();
 
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -31,10 +32,10 @@ export class ListaEventosComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   consultar(): void {
-    // this.subscripciones.push(
-    //   this.servicio.consultar().subscribe(list => this.datasource.data = list,
-    //     err => this.servicio.mostrarError(err)
-    //   ));
+    this.subscripciones.push(
+      this.servicio.consultar().subscribe(list => this.datasource.data = list,
+        err => this.servicio.mostrarError(err)
+      ));
   }
 
   doFilter($event: any): void {
