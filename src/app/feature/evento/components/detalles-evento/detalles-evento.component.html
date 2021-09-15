@@ -1,0 +1,114 @@
+<h2 class="mt-5">
+  <button mat-icon-button matTooltip="Volver al listado" [routerLink]="['/eventos/lista']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span class="ml-5 titulo-pagina">Detalles del Evento</span>
+</h2>
+
+<div fxLayout fxFlexAlign="space-between">
+  <mat-card class="m-3 mat-elevation-z2" fxFlex fxLayout="column">
+    <h2 class="header" mat-subheader>Información del evento</h2>
+    <mat-card-content fxFlex fxLayout fxLayoutAlign="space-evenly">
+      <mat-list fxFlex>
+        <mat-list-item>
+          <div mat-line>{{info.idEvento}}</div>
+          <div class="caption" mat-line> Código </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div mat-line>{{info.informacionEvento.titulo}}</div>
+          <div class="caption" mat-line> Título </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div mat-line>{{info.informacionEvento.descripcion}}</div>
+          <div class="caption" mat-line> Descripción </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div mat-line>{{info.informacionEvento.fechaEvento | date: 'fullDate'}}</div>
+          <div class="caption" mat-line> Fecha </div>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-list fxFlex>
+        <mat-list-item>
+          <div mat-line>
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip *ngFor="let cat of info.informacionEvento.categorias">
+                {{cat.nombre}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="caption" mat-line> Categorías </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div mat-line>{{info.informacionEvento.lugar.nombre}}, {{info.informacionEvento.lugar.direccion}}</div>
+          <div class="caption" mat-line> Lugar </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div mat-line>{{info.informacionEvento.lugar.sede.nombre}},
+            {{info.informacionEvento.lugar.sede.ciudad.nombre}}</div>
+          <div class="caption" mat-line> Sede </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="m-3 mat-elevation-z2" fxFlex>
+    <h2 class="header" mat-subheader>Información Organizadores evento</h2>
+    <mat-card-content fxLayout="column">
+      <div fxFlex fxLayout fxLayoutAlign="space-evenly">
+        <mat-list fxFlex fxLayout>
+          <mat-list-item *ngFor="let org of info.organizadores">
+            <div mat-line> {{org.nombre}}</div>
+            <div class="caption" mat-line> {{org.tipoOrganizador}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <h2 class="ml-3 mt-4 header">Información Facilitadores</h2>
+      <div fxFlex fxLayout fxLayoutAlign="space-evenly">
+        <mat-list fxFlex fxLayout>
+          <mat-list-item *ngFor="let fac of info.facilitadores">
+            <div mat-line> {{fac.identificacion}}, {{fac.nombres + ' ' + fac.apellidos}}</div>
+            <div class="caption" mat-line> {{fac.tipoRelacion}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div fxLayout fxFlexAlign="space-between mb-5">
+  <mat-card class="m-3 mat-elevation-z2 mb-5" fxFlex>
+    <h2 class="header" mat-subheader>Información Conferencistas</h2>
+    <mat-card-content fxLayout="column">
+      <div fxFlex fxLayout fxLayoutAlign="space-evenly">
+        <mat-list fxFlex fxLayout>
+          <mat-list-item *ngFor="let fac of info.facilitadores">
+            <div mat-line> {{fac.identificacion}}, {{fac.nombres + ' ' + fac.apellidos}}</div>
+            <div class="caption" mat-line> {{fac.tipoRelacion}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <h2 class="ml-3 mt-4 header">Información Asistentes</h2>
+      <div fxFlex fxLayout fxLayoutAlign="space-evenly">
+        <mat-list fxFlex fxLayout>
+          <mat-list-item *ngIf="!info.facilitadores">Al parecer no hay asistentes registrados todavía</mat-list-item>
+          <mat-list-item *ngFor="let fac of info.facilitadores">
+            <div mat-line> {{fac.identificacion}}, {{fac.nombres + ' ' + fac.apellidos}}</div>
+            <div class="caption" mat-line> {{fac.tipoRelacion}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="m-3 mat-elevation-z2 mb-5" fxFlex>
+    <h2 class="header" mat-subheader>Comentarios</h2>
+    <mat-card-content>
+      <mat-list fxFlex fxLayout="column">
+        <mat-list-item *ngFor="let com of info.comentarios">
+          <mat-icon mat-list-icon>comment</mat-icon>
+          <div mat-line> {{com.mensaje}}</div>
+          <div class="caption" mat-line> {{com.usuario.nombreUsuario}} </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

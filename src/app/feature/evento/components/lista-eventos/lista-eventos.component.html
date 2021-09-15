@@ -1,4 +1,6 @@
+
 <div fxLayout="column" class="mt-5">
+  <h2 class="mx-auto text-center titulo-pagina">Eventos</h2>
   <div class="px-1 px-sm-5 list-button" fxLayoutAlign="space-between">
     <mat-form-field>
       <input matInput type="text" (keyup)="doFilter($event)" placeholder="buscar..." />
@@ -43,7 +45,7 @@
           <mat-icon class="mat-18">more_horiz</mat-icon>
         </button>
         <mat-menu #options="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/eventos/'+doc.idEvento]+'/info'">
             <mat-icon>info</mat-icon> Ver información del evento
           </button>
           <button mat-menu-item>
@@ -58,7 +60,7 @@
           <button mat-menu-item>
             <mat-icon>groups</mat-icon> Gestionar Conferencistas
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item fxHide>
             <mat-icon color="warn">delete</mat-icon> Eliminar Evento
           </button>
         </mat-menu>

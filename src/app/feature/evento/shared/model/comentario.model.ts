@@ -1,5 +1,6 @@
-import { Usuario } from '@core/model/usuario.model';
+import { UsuarioEvento } from './usuario-evento.model';
+
 export interface Comentario {
   mensaje: string;
-  usuario: Usuario;
+  usuario: UsuarioEvento;
 }

@@ -19,7 +19,6 @@ export class EventoService {
   consultar(): Observable<any> {
     return this.httpService.getRequest<Evento[]>(this.path).pipe(
       map((res: Evento[]) => {
-        console.log(res)
         return res.map(evento => {
           return {
             "idEvento": evento.idEvento,
@@ -30,6 +29,10 @@ export class EventoService {
         })
       })
     );
+  }
+
+  buscarPorId(idEvento: string): Promise<Evento> {
+    return this.httpService.getRequest<Evento>(`${this.path}/${idEvento}`).toPromise();
   }
 
   mostrarError(err: any): void {

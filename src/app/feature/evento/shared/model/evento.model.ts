@@ -1,16 +1,16 @@
 import { Categoria } from './categoria.model';
 import { InformacionEvento } from './informacion-evento.model';
-import { FacultadOrganizadora } from './facultad.model';
-import { Usuario } from '@core/model/usuario.model';
 import { Comentario } from './comentario.model';
+import { Organizador } from './organizador.model';
+import { UsuarioEvento } from './usuario-evento.model';
 
 export interface Evento {
   idEvento: string;
   informacionEvento: InformacionEvento;
-  asistentes: Usuario[];
-  facilitadores: Usuario[];
-  conferencistas: Usuario[];
-  organizadores: FacultadOrganizadora[];
+  asistentes: UsuarioEvento[];
+  facilitadores: UsuarioEvento[];
+  conferencistas: UsuarioEvento[];
+  organizadores: Organizador[];
   comentarios: Comentario[];
 
 }

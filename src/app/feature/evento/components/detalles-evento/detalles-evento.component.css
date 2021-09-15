@@ -1,0 +1,14 @@
+h2.header {
+  font-weight: 600;
+}
+
+div.caption {
+  margin-top: 8px !important;
+  border-top: 1px solid rgb(237, 233, 233);
+  color: #555;
+  font-size: 1em;
+}
+
+.titulo-pagina {
+  font-size: 1.5em;
+}

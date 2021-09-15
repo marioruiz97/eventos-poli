@@ -22,6 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
@@ -50,6 +52,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
+    MatTabsModule,
+    MatChipsModule
   ],
   exports: [
     FlexLayoutModule,
@@ -73,6 +77,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
+    MatTabsModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }
