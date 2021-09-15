@@ -51,7 +51,7 @@
           <button mat-menu-item>
             <mat-icon>chat</mat-icon> Comentarios
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/eventos/'+doc.idEvento]+'/editar'">
             <mat-icon>edit</mat-icon> Editar Evento
           </button>
           <button mat-menu-item>

@@ -1,3 +1,4 @@
+import { FormularioEventoComponent } from './components/formulario-evento/formulario-evento.component';
 import { DetallesEventoComponent } from './components/detalles-evento/detalles-evento.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,6 +15,14 @@ const routes: Routes = [
   {
     path: ':id/info', pathMatch: 'full',
     component: DetallesEventoComponent
+  },
+  {
+    path: 'crear', pathMatch: 'full',
+    component: FormularioEventoComponent
+  },
+  {
+    path: ':id/editar', pathMatch: 'full',
+    component: FormularioEventoComponent
   }
 ];
 

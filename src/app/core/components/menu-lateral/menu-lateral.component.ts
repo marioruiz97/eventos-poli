@@ -14,10 +14,8 @@ export class MenuLateralComponent implements OnInit {
 
   // TODO: CAMBIAR MENU Y RUTAS
   public menu: NavItem[] = [
-    { url: '/tipo-citas', name: 'Tipos de Cita', icon: 'next_week' },
-    { url: '/veterinarios', name: 'Veterinarios', icon: 'assignment_ind' },
-    { url: '/responsables', name: 'Clientes y Mascotas', icon: 'people' },
-    { url: '/citas', name: 'Agendar Citas', icon: 'book_online' },
+    { url: '/eventos', name: 'Ver Eventos', icon: 'next_week' },
+    { url: '/eventos/crear', name: 'Crear Eventos', icon: 'book_online' },
   ];
 
   public estaEnSesion: boolean = false;

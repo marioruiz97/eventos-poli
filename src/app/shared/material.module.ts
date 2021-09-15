@@ -24,7 +24,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 @NgModule({
@@ -53,7 +56,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatMomentDateModule
   ],
   exports: [
     FlexLayoutModule,
@@ -78,7 +83,12 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatTabsModule,
-    MatChipsModule
-  ]
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatMomentDateModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-CO' },
+  ],
 })
 export class MaterialModule { }

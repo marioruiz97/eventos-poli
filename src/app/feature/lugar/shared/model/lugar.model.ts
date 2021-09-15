@@ -1,6 +1,7 @@
-import { Sede } from "./sede.model";
+import { Sede } from "@feature/evento/shared/model/sede.model";
 
 export interface Lugar {
+  claveLugar?: string;
   nombre: string;
   direccion: string;
   sede: Sede;

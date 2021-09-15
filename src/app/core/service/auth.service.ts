@@ -16,7 +16,6 @@ export class AuthService {
 
 
   constructor(private router: Router) {
-    console.log('constructor auth service')
     this.verificarAutenticacion();
   }
 
@@ -69,7 +68,7 @@ export class AuthService {
     this.notificarSiHayUsuarioEnSesion();
   }
 
-  public cerrarSesion(){
+  public cerrarSesion() {
     this.limpiarSesion();
   }
 

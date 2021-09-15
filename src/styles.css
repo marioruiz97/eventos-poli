@@ -34,3 +34,14 @@ mat-sidenav {
 mat-sidenav {
   width: 30vw;
 }
+
+/*
+* Estilos para formularios con errores
+*/
+/** Estilos para formularios, para aplicarse deben tener el class form-group en la etiqueta <div> que contiene a los mat-form-fields */
+p.invalid-form,
+div.invalid-form {
+  text-align: center !important;
+  color: orangered;
+  font-weight: 400;
+}

@@ -1,0 +1,100 @@
+<h2 class="titulo-pagina mt-5">Formulario de Eventos</h2>
+<section class="mt-5">
+  <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()" fxLayout="column">
+
+    <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
+      <h2 class="header" mat-subheader>Información Básica</h2>
+      <mat-card-content fxLayout="column">
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Código asignado</mat-label>
+            <input matInput formControlName="idEvento" />
+            <mat-hint>El código es autoasignado por el sistema</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Título del Evento</mat-label>
+            <input matInput placeholder="Ej. Encuentro sobre Veterinaria General" formControlName="titulo" />
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Descripción</mat-label>
+            <textarea matInput placeholder="Ej. Evento donde se revisan aspectos generales"
+              formControlName="descripcion"></textarea>
+            <mat-icon matPrefix>message</mat-icon>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Fecha evento</mat-label>
+            <input matInput [min]="minDate" [matDatepicker]="fecha" formControlName="fecha" />
+            <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+            <mat-datepicker #fecha></mat-datepicker>
+            <mat-hint>Ingresa la fecha del evento</mat-hint>
+            <mat-error>La fecha es obligatoria</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="select-group" fxFlex>
+            <mat-label>Lugar</mat-label>
+            <mat-select formControlName="lugar">
+              <mat-option [value]="item.claveLugar" *ngFor="let item of lugares">
+                {{item.nombre + ', ' + item.direccion}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Seleccione el lugar</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8 m-4 p-4">
+      <mat-card-content fxLayout="column">
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Categorias</mat-label>
+            <textarea matInput placeholder="Ej. internet, cafe_internet" formControlName="categorias"></textarea>
+            <mat-hint>Ingrese las etiquetas separadas por coma</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Facilitadores</mat-label>
+            <mat-select formControlName="facilitadores" multiple>
+              <mat-option *ngFor="let fac of facilitadores" [value]="fac.identificacion">{{fac.nombres + ' ' +
+                fac.apellidos}}</mat-option>
+            </mat-select>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Organizadores</mat-label>
+            <mat-select formControlName="organizadores" multiple>
+              <mat-option *ngFor="let org of organizadores"
+                [value]="org.codigo">
+                {{org.tipoOrganizador}} de {{org.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <p class="invalid-form" *ngIf="form.invalid">
+        **El formulario posee errores, verifica los campos.
+      </p>
+      <mat-card-actions class="form-action mt-4" fxLayoutAlign="center" fxLayout.lt-sm="column">
+        <button class="m-2" type="button" mat-raised-button (click)="volver()" color="warn">
+          <mat-icon>arrow_back</mat-icon>Regresar al listado
+        </button>
+        <button class="m-2" type="submit" mat-raised-button color="primary" [disabled]="!form.valid">
+          <mat-icon>save</mat-icon> {{accion()}} Evento
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>

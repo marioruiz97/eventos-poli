@@ -1,0 +1,27 @@
+.titulo-pagina {
+  font-size: 2em;
+  text-align: center;
+}
+
+.form-action button {
+  min-width: 30%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group mat-form-field {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+form mat-card {
+  min-width: 80vw;
+  max-width: 80vw;
+  align-self: center;
+}
